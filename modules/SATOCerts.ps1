@@ -18,8 +18,8 @@ function Create-JwtHeaderPayload {
     $audience = "https://login.microsoftonline.com/$TenantID/oauth2/v2.0/token"
 
     
-    $StartDate = [datetime]::UtcNow.AddSeconds(-10)
-    $EndDate = [datetime]::UtcNow.AddMinutes(5)
+    $StartDate = (Get-Date).AddSeconds(-10)
+    $EndDate = (Get-Date).AddMinutes(5)
     $JWTExpiration = [math]::Round(($EndDate - [datetime]"1970-01-01T00:00:00Z").TotalSeconds)
     $NotBefore = [math]::Round(($StartDate - [datetime]"1970-01-01T00:00:00Z").TotalSeconds)
 
